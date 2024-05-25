@@ -1,0 +1,8 @@
+tasks:
+  - name: Install Android SDK
+    init: |
+      mkdir -p $ANDROID_HOME/cmdline-tools
+      curl -o sdk-tools.zip https://dl.google.com/android/repository/commandlinetools-linux-7302050_latest.zip
+      unzip sdk-tools.zip -d $ANDROID_HOME/cmdline-tools
+      mv $ANDROID_HOME/cmdline-tools/cmdline-tools $ANDROID_HOME/cmdline-tools/latest         yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+      $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platform-tools" "platforms;android-29"
